@@ -1,7 +1,7 @@
 import os 
 import re 
 
-from BEL42_TS import getErrorMsg_ValueError_Empty
+from BEL42_Source.BEL42_TS import getErrorMsg_ValueError_Empty
 
 MKFILE_REGEX = r"""
 [% NEW-FILE %]

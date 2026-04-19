@@ -1,4 +1,4 @@
-from setutils import (
+from BEL42_Source.BEL42_UTILS.setutils import (
     add_gitignore_files,
     get_jsondir_pos,
     get_system_prompt,
@@ -13,10 +13,10 @@ from setutils import (
 )
 
 
-from BEL42_Json import (
+from BEL42_Source.BEL42_UTILS.BEL42_Json import (
     BEL42_Json
 )
 
-from output_format import (
+from BEL42_Source.BEL42_UTILS.output_format import (
     tokenize_blisk_output
 )

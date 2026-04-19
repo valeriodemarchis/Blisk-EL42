@@ -1,1 +1,1 @@
-from sfs import analizeModel_OSFS_AndExec
+from BEL42_Source.BEL42_SFS.sfs import analizeModel_OSFS_AndExec

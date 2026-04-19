@@ -1,5 +1,5 @@
-from chatmemory_models import Blisk_EL42_JsonMemoryHistory
-from BEL42_TS import (
+from BEL42_Source.BEL42_Kernel.chatmemory_models import Blisk_EL42_JsonMemoryHistory
+from BEL42_Source.BEL42_TS import (
     getErrorMsg_ValueError_Empty,
     TSS_Searcher,
     BEL42_TSSearch,
@@ -7,9 +7,9 @@ from BEL42_TS import (
     getErrorMsg_NoneValue
 )
 
-from BEL42_SFS import analizeModel_OSFS_AndExec
-from BEL42_UTILS import get_default_reasoning_effort
-from settings import (
+from BEL42_Source.BEL42_SFS import analizeModel_OSFS_AndExec
+from BEL42_Source.BEL42_UTILS import get_default_reasoning_effort
+from BEL42_Source.settings import (
     BLISK_MODE_SEARCH_SUMMARY,
     BLISK_DEFAULT_CAN_MKF,
     SUMMARY_MODEL,
@@ -17,7 +17,7 @@ from settings import (
     RESEARCH_ABILITY
 )
 
-from BEL42_UTILS import tokenize_blisk_output
+from BEL42_Source.BEL42_UTILS import tokenize_blisk_output
 import torch
 
 default_reasoning_effort = get_default_reasoning_effort()

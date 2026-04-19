@@ -1,6 +1,6 @@
 import os 
 from typing import List
-from settings import *
+from BEL42_Source.settings import *
 
 
 def add_gitignore_files(_FilesList: List[str]) -> None:

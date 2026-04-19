@@ -2,7 +2,7 @@ import os
 from dotenv import load_dotenv
 from pathlib import Path 
 
-from BEL42_TS import (
+from BEL42_Source.BEL42_TS import (
     DEFAULT_MAX_RESULTS_NUMBER,
     DEFAULT_MIN_SIMPERC_AMOUNT,
     DEFAULT_REASONING_EFFORT,

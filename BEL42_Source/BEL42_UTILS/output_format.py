@@ -1,11 +1,11 @@
 
 import torch 
-from settings import (
+from BEL42_Source.settings import (
     DefaultMaxLength,
     DefaultTruncation,
 )
 
-from BEL42_TS import (
+from BEL42_Source.BEL42_TS import (
     getErrorMsg_ValueError_Empty,
     tokenizer, 
     model

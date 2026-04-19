@@ -4,9 +4,9 @@ from langchain_core.prompts import ChatPromptTemplate, MessagesPlaceholder
 from langchain_openai import ChatOpenAI
 from dotenv import load_dotenv
 
-from BEL42_TS import getErrorMsg_ValueError_Empty
+from BEL42_Source.BEL42_TS import getErrorMsg_ValueError_Empty
 from BEL42_UTILS import BEL42_Json
-from BEL42_UTILS.setutils import get_system_prompt
+from BEL42_Source.BEL42_UTILS.setutils import get_system_prompt
 
 
 load_dotenv()

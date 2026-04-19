@@ -11,7 +11,7 @@ try:
 except ImportError:
     raise ImportError("One of the following modules (or more than 1) is not installed: torch, dotenv, duckduckgo_search, torch, openai, transformers")
 
-from TSearch import (
+from BEL42_Source.BEL42_TS.TSearch import (
     DEFAULT_MAX_RESULTS_NUMBER,
     DEFAULT_MIN_SIMPERC_AMOUNT,
     DEFAULT_REASONING_EFFORT,
@@ -21,14 +21,14 @@ from TSearch import (
     Article
 )
 
-from syserrors import (
+from BEL42_Source.BEL42_TS.syserrors import (
     getErrorMsg_ValueError_Empty,
     getErrorMsg_ValueError_NotOption
 )
 
-from checkAI import _summaryAI_modeladvanced_call
-from TSearch import analizeModel_O
-from settings import SUMMARY_MODEL
+from BEL42_Source.BEL42_TS.checkAI import _summaryAI_modeladvanced_call
+from BEL42_Source.BEL42_TS.TSearch import analizeModel_O
+from BEL42_Source.settings import SUMMARY_MODEL
 
 similiarity = funct.cosine_similarity
 

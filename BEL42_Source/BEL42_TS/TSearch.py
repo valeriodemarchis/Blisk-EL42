@@ -17,9 +17,9 @@ try:
 except ImportError:
 	raise ImportError("One of these libraries (or more than 1) is not installed: duckduckgo_search, beautifulsoup4, tiktoken, torch, transformers")
 	
-from checkAI import _summaryAI_modelcall
-from syserrors import getErrorMsg_ValueError_Empty
-from BEL42_UTILS.setutils import get_bert_model
+from BEL42_Source.BEL42_TS.checkAI import _summaryAI_modelcall
+from BEL42_Source.BEL42_TS.syserrors import getErrorMsg_ValueError_Empty
+from BEL42_Source.BEL42_UTILS.setutils import get_bert_model
 
 load_dotenv()
 

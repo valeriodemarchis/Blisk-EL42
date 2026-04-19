@@ -1,11 +1,11 @@
 import json 
 import os 
-from setutils import (
+from BEL42_Source.BEL42_UTILS.setutils import (
     add_gitignore_files,
     get_jsondir_pos
 )
 
-from BEL42_TS import (
+from BEL42_Source.BEL42_TS import (
     getErrorMsg_FileNoExists,
     getErrorMsg_NoneValue,
     getErrorMsg_ValueError_Empty
