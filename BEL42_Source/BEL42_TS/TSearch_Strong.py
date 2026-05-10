@@ -38,8 +38,9 @@ class TSS_Article:
 		self.title = ""
 		self.href = ""
 		self.body = ""
-		self.attributes = [self.title, self.href, self.body, self.sim]
 		self.sim = 0.00
+		self.attributes = [self.title, self.href, self.body, self.sim]
+		
 	
 	def set_title(self, _nt: str = "") -> None:
 		if not _nt:
