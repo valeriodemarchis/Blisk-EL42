@@ -13,7 +13,7 @@ load_dotenv()
 
 jf = BEL42_Json(
     _MainJsonValue={}, _JsonFileName="store.memory.json",
-    _gitignore_presence=False, add_mjv_given=True
+    _gitignore_presence=False, _add_mjv_given=False
 )
 
 store = jf.get_data()
