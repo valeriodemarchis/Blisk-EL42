@@ -7,7 +7,7 @@ from BEL42_Source.BEL42_TS import (
     getErrorMsg_NoneValue
 )
 
-from BEL42_Source.BEL42_SFS import analizeModel_OSFS_AndExec
+
 from BEL42_Source.BEL42_UTILS import get_default_reasoning_effort
 from BEL42_Source.settings import (
     BLISK_MODE_SEARCH_SUMMARY,
@@ -102,14 +102,16 @@ def  blisk(
         
     
     if blisk_can_mkf:
-        analizeModel_OSFS_AndExec(modelmsg=response)
-        final = Blisk_EL42_JsonMemoryHistory.invoke(
-            input="FILE CREATED SUCCESSIFULLY; now continue with the user", config=config
-        ).content 
-        if output_format == "text":
-            return final 
-        if output_format == "pt":
-            return tokenize_blisk_output(final)
+        # for now is safer to not use this rudimental function for making files
+        pass
+        #analizeModel_OSFS_AndExec(modelmsg=response)
+        #final = Blisk_EL42_JsonMemoryHistory.invoke(
+            #input="FILE CREATED SUCCESSIFULLY; now continue with the user", config=config
+        #).content 
+        #if output_format == "text":
+            #return final 
+        #if output_format == "pt":
+            #return tokenize_blisk_output(final)
 
 
     if output_format == "text":

@@ -35,11 +35,13 @@ similiarity = funct.cosine_similarity
 
 class TSS_Article:
 	def __init__(self):
-		self.title = ""
-		self.href = ""
-		self.body = ""
-		self.attributes = [self.title, self.href, self.body, self.sim]
-		self.sim = 0.00
+	    self.title = ""
+	    self.href = ""
+	    self.body = ""
+        self.sim = 0.00
+	    self.attributes = [self.title, self.href, self.body, self.sim]
+        
+		
 	
 	def set_title(self, _nt: str = "") -> None:
 		if not _nt:
@@ -181,7 +183,7 @@ class TSS_Searcher:
 
     
     def _findTop(self, top: int = 5) -> None:
-        self.fresults = sorted(self.fresults, key=lambda fres: fres.sim)
+        self.fresults = sorted(self.fresults, key=lambda fres: fres.sim, reverse=True)
         self.top = self.fresults[:top]
         
     def _makeSummary(self):
