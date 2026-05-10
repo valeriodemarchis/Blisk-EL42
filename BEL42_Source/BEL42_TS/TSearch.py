@@ -30,7 +30,7 @@ DEFAULT_MIN_SIMPERC_AMOUNT = 65.00
 DEFAULT_REASONING_EFFORT = "medium"
 
 modelname = get_bert_model()
-cosine_similiarity = F.cosine_similiarty
+cosine_similarity = F.cosine_similiarty
 tokenizer = BertTokenizer.from_pretrained(modelname)
 model = BertModel.from_pretrained(modelname)
 
@@ -90,7 +90,7 @@ def fsimiliarity(pquery1: str = "", pquery2: str = ""):
 	ptensor1 = outputs.last_hidden_state
 	ptensor2 = outputs2.last_hidden_state
 	
-	simperc = cosine_similiarity(ptensor1, ptensor2) * 100
+	simperc = cosine_similarity(ptensor1, ptensor2) * 100
 	return simperc.item().mean()
 	
 
