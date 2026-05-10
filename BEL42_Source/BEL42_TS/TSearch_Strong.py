@@ -181,7 +181,7 @@ class TSS_Searcher:
 
     
     def _findTop(self, top: int = 5) -> None:
-        self.fresults = sorted(self.fresults, key=lambda fres: fres.sim)
+        self.fresults = sorted(self.fresults, key=lambda fres: fres.sim, reverse=True)
         self.top = self.fresults[:top]
         
     def _makeSummary(self):
