@@ -102,14 +102,15 @@ def  blisk(
         
     
     if blisk_can_mkf:
-        analizeModel_OSFS_AndExec(modelmsg=response)
-        final = Blisk_EL42_JsonMemoryHistory.invoke(
-            input="FILE CREATED SUCCESSIFULLY; now continue with the user", config=config
-        ).content 
-        if output_format == "text":
-            return final 
-        if output_format == "pt":
-            return tokenize_blisk_output(final)
+        pass # for now is better to not use this rudimental file making function
+        #analizeModel_OSFS_AndExec(modelmsg=response)
+        #final = Blisk_EL42_JsonMemoryHistory.invoke(
+            #input="FILE CREATED SUCCESSIFULLY; now continue with the user", config=config
+        #).content 
+        #if output_format == "text":
+            #return final 
+        #if output_format == "pt":
+            #return tokenize_blisk_output(final)
 
 
     if output_format == "text":
