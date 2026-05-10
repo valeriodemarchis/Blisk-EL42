@@ -1,3 +1,5 @@
+![Blisk-EL42 Logo](logo/Blisk-EL42.png)
+
 # Blisk-EL42 AI System
 
 Blisk-EL42 is an artificial intelligence system that uses some open-source models and OpenAI APIs with powerful web-searching engine and LangChain implementation.

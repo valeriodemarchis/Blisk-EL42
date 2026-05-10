@@ -35,12 +35,20 @@ similiarity = funct.cosine_similarity
 
 class TSS_Article:
 	def __init__(self):
+<<<<<<< HEAD
 	    self.title = ""
 	    self.href = ""
 	    self.body = ""
         self.sim = 0.00
 	    self.attributes = [self.title, self.href, self.body, self.sim]
         
+=======
+		self.title = ""
+		self.href = ""
+		self.body = ""
+		self.sim = 0.00
+		self.attributes = [self.title, self.href, self.body, self.sim]
+>>>>>>> f40979c9320354ea81a54d6d54ea22a5dfb02c35
 		
 	
 	def set_title(self, _nt: str = "") -> None:
