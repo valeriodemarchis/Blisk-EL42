@@ -13,7 +13,7 @@ class SafeImport:
             raise ImportError(f"ERROR: cannot import {module_name} because it's not allowed")
         
         for module in self.prohibited_modules:
-            if module_name.startswith(self.prohibited_modules + '.'):
+            if module_name.startswith(module + '.'):
                 raise ImportError(f"ERROR: cannot import {module_name} because is not allowed")
             
         return importlib.import_module(module_name)

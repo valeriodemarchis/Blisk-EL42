@@ -1,12 +1,12 @@
 
 import torch 
-from .settings import (
+from settings import (
     DefaultMaxLength,
     DefaultTruncation,
 )
 
-from .BEL42_TS import (
-    tokenizer, 
+from BEL42_TS.TSearch import (
+    tokenizer,
     model
 )
 

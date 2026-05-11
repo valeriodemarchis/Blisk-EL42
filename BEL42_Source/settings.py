@@ -1,18 +1,6 @@
-import os 
+import os
+from pathlib import Path
 from dotenv import load_dotenv
-from pathlib import Path 
-
-from .BEL42_TS import (
-    DEFAULT_MAX_RESULTS_NUMBER,
-    DEFAULT_MIN_SIMPERC_AMOUNT,
-    DEFAULT_REASONING_EFFORT,
-    DefaultMaxLength,
-    DefaultTruncation
-)
-
-from .BEL42_SFS.sfs import (
-    docker_sandbox_area, restricted_python_sandbox_area
-)
 
 load_dotenv()
 
@@ -24,11 +12,16 @@ BASE_DIR = Path(__file__).resolve().parent
 
 JSON_FILES_DIR = os.path.join(BASE_DIR, "JSON")
 DOTENV_FILE_PATH = os.path.join(BASE_DIR, ".env")
-DOCS_DIR = os.path.join(BASE_DIR, "DOCS")
+DOCS_DIR = os.path.join(BASE_DIR, "Docs")
 
-
-BERT_MODEL = os.getenv("BERT_MODEL")
+BERT_MODEL = os.getenv("BERT_MODEL", "bert-base-uncased")
 SUMMARY_MODEL = os.getenv("SUMMARY_MODEL")
+
+DEFAULT_MAX_RESULTS_NUMBER = 20
+DEFAULT_MIN_SIMPERC_AMOUNT = 65.00
+DEFAULT_REASONING_EFFORT = "medium"
+DefaultMaxLength = 600
+DefaultTruncation = True
 
 BLISK_MODE_SEARCH_SUMMARY = "summary"
 BLISK_MODE_SEARCH_DIRECT = "direct"
@@ -40,12 +33,11 @@ BLISK_OUTPUT_FORMAT_TEXT = "text"
 
 BLISK_DEFAULT_OUTPUT_FORMAT = BLISK_OUTPUT_FORMAT_TEXT
 
-RESEARCH_ABILITY = True 
+RESEARCH_ABILITY = True
 
+BLISK_SANDBOX_OPTION_AREA = "RESTRICTED_PYTHON_SANDBOX_AREA"
 
-BLISK_SANDBOX_OPTION_AREA = restricted_python_sandbox_area
-
-CODE_EXECUTION_ABILITY = True 
+CODE_EXECUTION_ABILITY = True
 
 DEFAULT_PROHIBITED_MODULES = [
     "os", "shutil", "subprocess", "requests", "ctypes"
