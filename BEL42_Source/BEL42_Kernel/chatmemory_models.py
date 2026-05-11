@@ -3,10 +3,11 @@ from langchain_core.runnables.history import RunnableWithMessageHistory
 from langchain_core.prompts import ChatPromptTemplate, MessagesPlaceholder
 from langchain_openai import ChatOpenAI
 from dotenv import load_dotenv
+import os
 
-from .BEL42_TS import getErrorMsg_ValueError_Empty
-from BEL42_UTILS import BEL42_Json
-from .BEL42_UTILS.setutils import get_system_prompt
+from BEL42_TS import getErrorMsg_ValueError_Empty
+from BEL42_UTILS.BEL42_Json import BEL42_Json
+from BEL42_UTILS.setutils import get_system_prompt
 
 
 load_dotenv()
@@ -25,12 +26,12 @@ def get_session_history(session_id: str = "") -> BaseChatMessageHistory:
         raise ValueError(errmsg)
     
     if session_id not in store:
-        jf.set_value(session_id, InMemoryChatMessageHistory())
+        store[session_id] = InMemoryChatMessageHistory()
 
-    return jf.get_value(session_id)
+    return store[session_id]
 
 
-model = ChatOpenAI("gpt-4o")
+model = ChatOpenAI(model=os.getenv("MODEL", "gpt-4o"))
 
 prompt = ChatPromptTemplate.from_messages([
     ("system", get_system_prompt()),
