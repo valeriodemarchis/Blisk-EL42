@@ -2,12 +2,16 @@ import os
 from dotenv import load_dotenv
 from pathlib import Path 
 
-from BEL42_Source.BEL42_TS import (
+from .BEL42_TS import (
     DEFAULT_MAX_RESULTS_NUMBER,
     DEFAULT_MIN_SIMPERC_AMOUNT,
     DEFAULT_REASONING_EFFORT,
     DefaultMaxLength,
     DefaultTruncation
+)
+
+from .BEL42_SFS.sfs import (
+    docker_sandbox_area, restricted_python_sandbox_area
 )
 
 load_dotenv()
@@ -39,6 +43,13 @@ BLISK_DEFAULT_OUTPUT_FORMAT = BLISK_OUTPUT_FORMAT_TEXT
 RESEARCH_ABILITY = True 
 
 
+BLISK_SANDBOX_OPTION_AREA = restricted_python_sandbox_area
 
+CODE_EXECUTION_ABILITY = True 
 
+DEFAULT_PROHIBITED_MODULES = [
+    "os", "shutil", "subprocess", "requests", "ctypes"
+]
 
+DEFAULT_TIMEOUT = 5
+DEFAULT_MEMORY_LIMIT_MB = 250

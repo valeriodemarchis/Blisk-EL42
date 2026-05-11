@@ -11,7 +11,7 @@ try:
 except ImportError:
     raise ImportError("One of the following modules (or more than 1) is not installed: torch, dotenv, duckduckgo_search, torch, openai, transformers")
 
-from BEL42_Source.BEL42_TS.TSearch import (
+from BEL42_TS.TSearch import (
     DEFAULT_MAX_RESULTS_NUMBER,
     DEFAULT_MIN_SIMPERC_AMOUNT,
     DEFAULT_REASONING_EFFORT,
@@ -21,34 +21,26 @@ from BEL42_Source.BEL42_TS.TSearch import (
     Article
 )
 
-from BEL42_Source.BEL42_TS.syserrors import (
+from BEL42_TS.syserrors import (
     getErrorMsg_ValueError_Empty,
     getErrorMsg_ValueError_NotOption
 )
 
-from BEL42_Source.BEL42_TS.checkAI import _summaryAI_modeladvanced_call
-from BEL42_Source.BEL42_TS.TSearch import analizeModel_O
-from BEL42_Source.settings import SUMMARY_MODEL
+from BEL42_TS.checkAI import _summaryAI_modeladvanced_call
+from BEL42_TS.TSearch import analizeModel_O
+from settings import SUMMARY_MODEL
 
 similiarity = funct.cosine_similarity
 
 
 class TSS_Article:
 	def __init__(self):
-<<<<<<< HEAD
 	    self.title = ""
 	    self.href = ""
 	    self.body = ""
         self.sim = 0.00
 	    self.attributes = [self.title, self.href, self.body, self.sim]
         
-=======
-		self.title = ""
-		self.href = ""
-		self.body = ""
-		self.sim = 0.00
-		self.attributes = [self.title, self.href, self.body, self.sim]
->>>>>>> f40979c9320354ea81a54d6d54ea22a5dfb02c35
 		
 	
 	def set_title(self, _nt: str = "") -> None:

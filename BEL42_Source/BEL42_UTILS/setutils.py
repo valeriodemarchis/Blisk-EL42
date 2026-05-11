@@ -1,7 +1,14 @@
 import os 
 from typing import List
-from BEL42_Source.settings import *
+from settings import *
+from BEL42_UTILS.error_utils import (
+    check_parameter_value_error_if_empty_string,
+    isAnOptionOfSandbox,
+)
 
+from BEL42_TS.syserrors import (
+    getErrorMsg_ValueError_NotOption
+)
 
 def add_gitignore_files(_FilesList: List[str]) -> None:
     _gitignore_file_pos = os.path.join(BASE_DIR, ".gitignore")
@@ -47,4 +54,28 @@ def get_system_prompt() -> str:
     return result 
 
 
+
+def change_blisk_sandbox_default_area(newArea: str = ""):
+    check_parameter_value_error_if_empty_string(
+        parameter=newArea, parameterName="newArea", functName="change_blisk_sandbox_default_area",
+        ParamT="string"
+    )
+
+    if not isAnOptionOfSandbox(
+        strinput=newArea, functName="change_blisk_sandbox_default_area",
+        param="newArea", param_t="string"
+    ):
+        ErrorMsg = getErrorMsg_ValueError_NotOption(
+            functName="change_blisk_sandbox_default_area",
+            parameter="newArea", parameterType="string", 
+            options=[docker_sandbox_area, restricted_python_sandbox_area]
+        )
+        raise ValueError(ErrorMsg)
     
+    BLISK_SANDBOX_OPTION_AREA = newArea 
+    return 
+
+
+def get_settings_blisk_execution_code_ability():
+    return CODE_EXECUTION_ABILITY
+

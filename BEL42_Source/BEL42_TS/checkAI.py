@@ -8,8 +8,8 @@ except ImportError:
 
 load_dotenv()
 
-from BEL42_Source.BEL42_TS.syserrors import getErrorMsg_ValueError_Empty
-from BEL42_Source.BEL42_TS.TSearch import DEFAULT_REASONING_EFFORT
+from .BEL42_TS.syserrors import getErrorMsg_ValueError_Empty
+from .BEL42_TS.TSearch import DEFAULT_REASONING_EFFORT
 
 def _summaryAI_modelcall(ToSum: str = ""):
     """

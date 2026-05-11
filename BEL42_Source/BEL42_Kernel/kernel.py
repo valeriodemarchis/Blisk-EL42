@@ -1,5 +1,5 @@
-from BEL42_Source.BEL42_Kernel.chatmemory_models import Blisk_EL42_JsonMemoryHistory
-from BEL42_Source.BEL42_TS import (
+from BEL42_Kernel.chatmemory_models import Blisk_EL42_JsonMemoryHistory
+from BEL42_TS import (
     getErrorMsg_ValueError_Empty,
     TSS_Searcher,
     BEL42_TSSearch,
@@ -8,16 +8,23 @@ from BEL42_Source.BEL42_TS import (
 )
 
 
-from BEL42_Source.BEL42_UTILS import get_default_reasoning_effort
-from BEL42_Source.settings import (
+
+from BEL42_SFS.code_execution import (
+    code_execution
+)
+
+
+from BEL42_UTILS import get_default_reasoning_effort
+from settings import (
     BLISK_MODE_SEARCH_SUMMARY,
     BLISK_DEFAULT_CAN_MKF,
     SUMMARY_MODEL,
     BLISK_DEFAULT_OUTPUT_FORMAT,
-    RESEARCH_ABILITY
+    RESEARCH_ABILITY,
+    CODE_EXECUTION_ABILITY
 )
 
-from BEL42_Source.BEL42_UTILS import tokenize_blisk_output
+from BEL42_UTILS import tokenize_blisk_output
 import torch
 
 default_reasoning_effort = get_default_reasoning_effort()
@@ -30,7 +37,8 @@ def  blisk(
             summary_modeln: str = SUMMARY_MODEL,
             output_format: str = BLISK_DEFAULT_OUTPUT_FORMAT,
             research_ability: bool = RESEARCH_ABILITY,
-            session_id: str = ""
+            session_id: str = "",
+            execution_code_ability: bool = CODE_EXECUTION_ABILITY
         ) -> str | torch.Tensor:
     
     """
@@ -52,6 +60,8 @@ def  blisk(
     output_format (string) => can be 'pt' or 'text', so output as a tensor or as a text
     --- 
     research_ability (bool) => if blisk can search, currently yes
+    ---
+    code_execution_ability (bool) => if blisk can execute code
     """
 
     if not binput:
@@ -112,6 +122,14 @@ def  blisk(
             #return final 
         #if output_format == "pt":
             #return tokenize_blisk_output(final)
+
+    
+    if execution_code_ability:
+        code_execution(
+            binput=binput
+        )
+
+    
 
 
     if output_format == "text":
