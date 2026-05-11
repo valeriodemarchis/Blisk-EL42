@@ -1,14 +1,20 @@
-import os 
+import os
 from typing import List
-from settings import *
-from BEL42_UTILS.error_utils import (
-    check_parameter_value_error_if_empty_string,
-    isAnOptionOfSandbox,
+from settings import (
+    APIKEY,
+    BASE_URL,
+    BASE_DIR,
+    BERT_MODEL,
+    CODE_EXECUTION_ABILITY,
+    DEFAULT_MAX_RESULTS_NUMBER,
+    DEFAULT_REASONING_EFFORT,
+    DOTENV_FILE_PATH,
+    DOCS_DIR,
+    JSON_FILES_DIR,
+    DefaultMaxLength,
+    DefaultTruncation,
 )
 
-from BEL42_TS.syserrors import (
-    getErrorMsg_ValueError_NotOption
-)
 
 def add_gitignore_files(_FilesList: List[str]) -> None:
     _gitignore_file_pos = os.path.join(BASE_DIR, ".gitignore")
@@ -24,38 +30,51 @@ def get_jsondir_pos() -> str:
 def get_default_max_res() -> int:
     return DEFAULT_MAX_RESULTS_NUMBER
 
+
 def get_default_reasoning_effort() -> str:
     return DEFAULT_REASONING_EFFORT
 
+
 def get_apikey() -> str:
-    return APIKEY 
+    return APIKEY
+
 
 def get_baseurl() -> str:
-    return BASE_URL 
+    return BASE_URL
+
 
 def get_dotenv_filep() -> str:
     return DOTENV_FILE_PATH
 
+
 def get_default_max_length() -> int:
     return DefaultMaxLength
+
 
 def get_default_truncation() -> bool:
     return DefaultTruncation
 
 
 def get_bert_model() -> str:
-    return BERT_MODEL
+    return BERT_MODEL or "bert-base-uncased"
 
 
 def get_system_prompt() -> str:
     fp = os.path.join(DOCS_DIR, "system_prompt.txt")
     with open(fp, "r") as prompt:
         result = prompt.read()
-    return result 
-
+    return result
 
 
 def change_blisk_sandbox_default_area(newArea: str = ""):
+    from BEL42_SFS.sfs import (
+        docker_sandbox_area,
+        isAnOptionOfSandbox,
+        restricted_python_sandbox_area,
+    )
+    from BEL42_TS.syserrors import getErrorMsg_ValueError_NotOption
+    from BEL42_UTILS.error_utils import check_parameter_value_error_if_empty_string
+
     check_parameter_value_error_if_empty_string(
         parameter=newArea, parameterName="newArea", functName="change_blisk_sandbox_default_area",
         ParamT="string"
@@ -66,16 +85,15 @@ def change_blisk_sandbox_default_area(newArea: str = ""):
         param="newArea", param_t="string"
     ):
         ErrorMsg = getErrorMsg_ValueError_NotOption(
-            functName="change_blisk_sandbox_default_area",
-            parameter="newArea", parameterType="string", 
+            functionName="change_blisk_sandbox_default_area",
+            parameter="newArea", parameterType="string",
             options=[docker_sandbox_area, restricted_python_sandbox_area]
         )
         raise ValueError(ErrorMsg)
-    
-    BLISK_SANDBOX_OPTION_AREA = newArea 
-    return 
+
+    globals()["BLISK_SANDBOX_OPTION_AREA"] = newArea
+    return
 
 
 def get_settings_blisk_execution_code_ability():
     return CODE_EXECUTION_ABILITY
-

@@ -1,9 +1,4 @@
-from .BEL42_TS.syserrors import *
-from .BEL42_SFS.sfs import (
-    isAnOptionOfSandbox,
-    docker_sandbox_area,
-    restricted_python_sandbox_area
-)
+from BEL42_TS.syserrors import *
 
 def check_parameter_value_error_if_empty_string(parameter: str = "", 
                                          parameterName: str = "",
@@ -15,7 +10,7 @@ def check_parameter_value_error_if_empty_string(parameter: str = "",
     """
     # checking if the parameter is empty or None:
     
-    if (parameter == "") or (parameter.replace(" ", "") == "") or (parameter is None):
+    if parameter is None or parameter == "" or parameter.replace(" ", "") == "":
         ErrorMsg: str = getErrorMsg_ValueError_Empty(
             functionName=functName, parameter=parameterName, parameterType=ParamT
         )

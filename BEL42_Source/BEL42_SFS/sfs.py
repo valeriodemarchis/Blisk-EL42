@@ -1,4 +1,4 @@
-from .BEL42_TS.syserrors import (
+from BEL42_TS.syserrors import (
     getErrorMsg_ValueError_NotOption
 )
 from BEL42_UTILS.error_utils import (

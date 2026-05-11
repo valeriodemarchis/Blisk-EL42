@@ -61,7 +61,7 @@ def customed_params_code_execution(code_to_exec: str = "",
         timeout=timeout, memory_limit_mb=memory_limit_mb, prohibited_modules=prohibited_modules,
     )
 
-    outcome = sandbox_manager.run()
+    outcome = sandbox_manager.run(code=code_to_exec)
     result = handle_restricted_python_result(outcome=outcome)
     
     return result 
@@ -82,9 +82,9 @@ def code_execution(binput: str = "",
     Otherwise, just returns nothing.
     """
     
-    result = re.search(exec_code_str, binput)
+    result = re.search(exec_code_str, binput, re.DOTALL)
     if result:
-        code = result.group()
+        code = result.group(1)
         customed_params_code_execution(
             code, prohibited_modules, timeout, memory_limit_mb
         )

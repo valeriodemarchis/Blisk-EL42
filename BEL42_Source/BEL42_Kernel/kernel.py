@@ -1,10 +1,12 @@
 from BEL42_Kernel.chatmemory_models import Blisk_EL42_JsonMemoryHistory
-from BEL42_TS import (
+from BEL42_TS.syserrors import (
     getErrorMsg_ValueError_Empty,
-    TSS_Searcher,
-    BEL42_TSSearch,
     getErrorMsg_ValueError_NotOption,
     getErrorMsg_NoneValue
+)
+from BEL42_TS.TSearch_Strong import (
+    TSS_Searcher,
+    BEL42_TSSearch
 )
 
 
@@ -24,7 +26,7 @@ from settings import (
     CODE_EXECUTION_ABILITY
 )
 
-from BEL42_UTILS import tokenize_blisk_output
+from BEL42_UTILS.output_format import tokenize_blisk_output
 import torch
 
 default_reasoning_effort = get_default_reasoning_effort()
