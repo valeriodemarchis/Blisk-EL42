@@ -47,6 +47,7 @@ primp==1.2.2
 pyasn1==0.6.3
 pyasn1_modules==0.4.2
 pycparser==3.0
+psycopg2-binary==2.9.9
 pydantic==2.13.2
 pydantic_core==2.46.2
 pygame==2.6.1
