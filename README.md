@@ -42,6 +42,7 @@ If the current mode is direct mode, the model will get directly the results with
 LangChain is a very important part of Blisk-EL42, and it's employed for the model chain.
 So, the file where the chain is made is `chatmemory_models.py`, where we can find the chain and the memory mechanism, that for now is only with JSON files.
 We don't use just the standard library of `json` (Python), but you can find in the file `BEL42_Json.py` in the directory `BEL42_UTILS`, the class `BEL42_Json`, that is a very useful class for managing JSON files.
+[UPDATE]: now Blisk-EL42 uses a Database to save the chats, the code is located in file `BEL42_UTILS/BEL42_Database.py`, so the JSON part is DEPRECATED.
 
 ## The model with audio
 
@@ -55,7 +56,7 @@ You can find it in the directory `Docs`.
 
 ## Coming soon
 
-- Chat memory linked to PostgreSQL or SQLite
+[DONE] memory saved in Database 
 - Audio mode working
 - GUI and design
 
